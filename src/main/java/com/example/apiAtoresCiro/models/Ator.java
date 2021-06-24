@@ -1,5 +1,7 @@
 package com.example.apiAtoresCiro.models;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
@@ -19,6 +21,15 @@ public class Ator extends AbstractEntity {
     joinColumns = @JoinColumn(name = "cd_ator"),
     inverseJoinColumns = @JoinColumn(name = "cd_filme"))
     private List<Filme> filmesDoAtor;
+
+    @JsonProperty
+    public void setFilmes(List<Filme> filmes) {
+        this.filmesDoAtor = filmes;
+    }
+
+    public List<Filme> getFilmes() {
+        return filmesDoAtor;
+    }
 
     public String getNome() {
         return nome;
