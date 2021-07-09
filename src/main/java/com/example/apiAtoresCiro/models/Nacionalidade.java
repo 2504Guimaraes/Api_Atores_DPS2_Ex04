@@ -10,9 +10,6 @@ public class Nacionalidade extends AbstractEntity {
 
     private String pais;
 
-    @OneToMany(mappedBy = "nacionalidade")
-    private List<Ator> atoresNacionalidade;
-
     public Nacionalidade() {
         super();
     }
@@ -23,13 +20,5 @@ public class Nacionalidade extends AbstractEntity {
 
     public void setPais(String pais) {
         this.pais = pais;
-    }
-
-    public List<Ator> getAtoresNacionalidade() {
-        return atoresNacionalidade;
-    }
-
-    public void setAtoresNacionalidade(List<Ator> atoresNacionalidade) {
-        this.atoresNacionalidade = atoresNacionalidade;
     }
 }
