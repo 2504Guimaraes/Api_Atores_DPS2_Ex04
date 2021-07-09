@@ -1,8 +1,6 @@
 package com.example.apiAtoresCiro.models;
 
 import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-import java.util.List;
 
 @Entity
 public class Nacionalidade extends AbstractEntity {
