@@ -2,9 +2,7 @@ package com.example.apiAtoresCiro.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
+import javax.persistence.*;
 import java.util.List;
 
 @Entity
@@ -14,7 +12,8 @@ public class Filme extends AbstractEntity {
     private String titulo;
     private int ano;
 
-    @ManyToMany(mappedBy = "filmesDoAtor")
+    @JoinTable(name = "tb_ator_filme")
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<Ator> atoresParticipantes;
 
     @JsonProperty

@@ -1,6 +1,9 @@
 package com.example.apiAtoresCiro.models;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -11,12 +14,11 @@ public class Ator extends AbstractEntity {
     private static final long serialVersionUID = 1L;
 
     private String nome;
+    @Temporal(TemporalType.DATE)
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private Date nascimento;
 
     @ManyToMany
-    @JoinTable(name = "tb_filme_ator",
-    joinColumns = @JoinColumn(name = "cd_ator"),
-    inverseJoinColumns = @JoinColumn(name = "cd_filme"))
     private List<Filme> filmesDoAtor;
 
     @ManyToOne
@@ -31,9 +33,9 @@ public class Ator extends AbstractEntity {
         return this.nacionalidade;
     }
 
-    @JsonProperty
-    public void setFilmes(List<Filme> filmes) {
-        this.filmesDoAtor = filmes;
+    @JsonIgnore
+    public void setFilmes(List<Filme> filmesDoAtor) {
+        this.filmesDoAtor = filmesDoAtor;
     }
 
     public List<Filme> getFilmes() {
