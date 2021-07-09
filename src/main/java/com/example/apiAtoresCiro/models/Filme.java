@@ -22,6 +22,7 @@ public class Filme extends AbstractEntity {
         this.atoresParticipantes = listaAtores;
     }
 
+    @JsonProperty
     public List<Ator> getAtoresParticipantes() {
         return atoresParticipantes;
     }
