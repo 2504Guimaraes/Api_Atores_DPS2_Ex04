@@ -13,8 +13,9 @@ public class Ator extends AbstractEntity {
     private static final long serialVersionUID = 1L;
 
     private String nome;
-    @Temporal(TemporalType.DATE)
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
+    @Temporal(TemporalType.TIMESTAMP)
+    @JsonFormat(shape = JsonFormat.Shape.STRING,
+            pattern = "yyyy-MM-dd")
     private Date nascimento;
 
     @ManyToMany
