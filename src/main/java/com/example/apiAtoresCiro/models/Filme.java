@@ -12,8 +12,7 @@ public class Filme extends AbstractEntity {
     private String titulo;
     private int ano;
 
-    @JoinTable(name = "tb_ator_filme")
-    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToMany(fetch = FetchType.LAZY)
     private List<Ator> atoresParticipantes;
 
     @JsonProperty
